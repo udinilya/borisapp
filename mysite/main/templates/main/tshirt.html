@@ -8,6 +8,20 @@
     <title>Boris</title>
 </head>
 <body>
-    <h1>Футболки</h1>
+    <h1>Boris</h1>
+    {% for el in product %}
+        {% if el.category == '1' %}
+            <div>
+                <h3>{{ el.title }}</h3>
+                <p>{{ el.price }}</p>
+                <p>{{ el.description }}</p>
+                <div>
+                    {% if el.image %}
+                        <img src="{{ el.image.url }}"/>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
 </body>
 </html>
