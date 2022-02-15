@@ -2,7 +2,7 @@ from django.db import models
 
 
 class ProductCategory(models.Model):
-    title = models.CharField('имя категории', max_length=30)
+    title = models.CharField('имя', max_length=30)
 
     def __str__(self):
         return self.title
@@ -13,8 +13,8 @@ class ProductCategory(models.Model):
 
 
 class Product(models.Model):
-    title = models.CharField('имя продукта', max_length=30)
-    category = models.CharField('категория', max_length=30, null=True)
+    category = models.ForeignKey('ProductCategory', on_delete=models.CASCADE, null=True)
+    title = models.CharField('имя', max_length=30)
     price = models.FloatField('цена')
     description = models.TextField('описание', max_length=300)
     image = models.ImageField('изображение', upload_to='image/')

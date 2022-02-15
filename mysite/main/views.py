@@ -9,4 +9,5 @@ def index(request):
 
 def tshirt(request):
     product = Product.objects.all()
-    return render(request, 'main/tshirt.html', {'product': product})
+    category_id = Product.objects.get(id=1).category.id
+    return render(request, 'main/tshirt.html', {'product': product, 'category_id': category_id})
