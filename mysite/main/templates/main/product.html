@@ -9,9 +9,16 @@
 </head>
 <body>
     <h1>Boris</h1>
-    {% for topic in topics %}
+    {% for el in products %}
         <div>
-            <h3><a href="{% url 'topic' topic.id%}">{{ topic.title }}</a></h3>
+            <h3>{{ el.title }}</h3>
+            <p>{{ el.price }}</p>
+            <p>{{ el.description }}</p>
+            <div>
+                {% if el.image %}
+                    <img src="{{ el.image.url }}"/>
+                {% endif %}
+            </div>
         </div>
     {% endfor %}
 </body>
