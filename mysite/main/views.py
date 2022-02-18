@@ -3,18 +3,16 @@ from .models import ProductCategory, Product
 
 
 def index(request):
-    topics = ProductCategory.objects.all()
-    return render(request, 'main/index.html', {'topics': topics})
+    categories = ProductCategory.objects.all()
+    return render(request, 'main/index.html', {'categories': categories})
 
 
-def topic(request, topic_id):
-    topic = ProductCategory.objects.get(id=topic_id)
+def category(request, category_id):
+    categories = ProductCategory.objects.get(id=category_id)
     products = Product.objects.all()
-    return render(request, 'main/product_list.html', {'products': products, 'topic': topic})
+    return render(request, 'main/product_list.html', {'categories': categories, 'products': products})
 
 
-def product(request, topic_id, product_id):
-    topic = Product.objects.get(id=topic_id).category.id
-    product = Product.objects.get(id=product_id).id
-    products = Product.objects.all()
-    return render(request, 'main/product.html', {'products': products, 'topic': topic, 'product': product})
+def product(request, product_id):
+    product = Product.objects.get(id=product_id)
+    return render(request, 'main/product.html', {'product': product})

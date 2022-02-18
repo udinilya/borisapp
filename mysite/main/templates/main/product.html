@@ -9,17 +9,15 @@
 </head>
 <body>
     <h1>Boris</h1>
-    {% for el in products %}
         <div>
-            <h3>{{ el.title }}</h3>
-            <p>{{ el.price }}</p>
-            <p>{{ el.description }}</p>
+            <h3>{{ product.title }}</h3>
+            <p>{{ product.price }}</p>
+            <p>{{ product.description }}</p>
             <div>
-                {% if el.image %}
-                    <img src="{{ el.image.url }}"/>
+                {% if product.image %}
+                    <img src="{{ product.image.url }}"/>
                 {% endif %}
             </div>
         </div>
-    {% endfor %}
 </body>
 </html>

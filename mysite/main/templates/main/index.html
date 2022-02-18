@@ -9,9 +9,9 @@
 </head>
 <body>
     <h1>Boris</h1>
-    {% for topic in topics %}
+    {% for category in categories %}
         <div>
-            <h3><a href="{% url 'topic' topic.id%}">{{ topic.title }}</a></h3>
+            <h3><a href="{% url 'category' category.id %}">{{ category.title }}</a></h3>
         </div>
     {% endfor %}
 </body>

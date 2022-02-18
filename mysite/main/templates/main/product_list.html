@@ -10,9 +10,9 @@
 <body>
     <h1>Boris</h1>
     {% for el in products %}
-        {% if el.category_id == topic.id %}
+        {% if el.category_id == categories.id %}
             <div>
-                <h3>{{ el.title }}</h3>
+                <h3><a href="{% url 'product' el.id %}">{{ el.title }}</a></h3>
                 <p>{{ el.price }}</p>
                 <div>
                     {% if el.image %}
