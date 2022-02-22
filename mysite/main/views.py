@@ -9,7 +9,7 @@ def index(request):
 
 def category(request, category_id):
     categories = ProductCategory.objects.get(id=category_id)
-    products = Product.objects.all()
+    products = Product.objects.filter(category_id=category_id)
     return render(request, 'main/product_list.html', {'products': products, 'categories': categories})
 
 
