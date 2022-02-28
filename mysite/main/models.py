@@ -17,7 +17,7 @@ class Product(models.Model):
     title = models.CharField('имя', max_length=30)
     price = models.FloatField('цена')
     description = models.TextField('описание', max_length=300)
-    image = models.ImageField('изображение', upload_to='image/')
+    image = models.ImageField('изображение', upload_to='image/', blank=True)
 
     def __str__(self):
         return self.title
@@ -25,3 +25,8 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
+
+
+class ProductImage(models.Model):
+    product = models.ForeignKey('Product', default=None, on_delete=models.CASCADE, null=True)
+    images = models.ImageField('изображение', upload_to='image/', blank=True)
